@@ -10,6 +10,11 @@ client.api_key = os.getenv('OPENAI_API_KEY')  # Fetch API key
 app = Flask(__name__)
 CORS(app)  # Allow CORS for all routes globally
 
+# Root route to prevent "Page Not Found" error
+@app.route('/')
+def home():
+    return "Welcome to ClickToInspire!"  # Simple placeholder message for the root route
+
 @app.route('/generate-idea', methods=['GET'])
 @cross_origin()  # Allow CORS for this specific route
 def generate_idea():
