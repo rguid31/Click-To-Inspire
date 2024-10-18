@@ -5,6 +5,7 @@ from flask_cors import CORS, cross_origin  # Import CORS to allow cross-origin r
 
 # Initialize the OpenAI client
 client = OpenAI()
+client.api_key = os.getenv('OPENAI_API_KEY')  # Fetch API key
 
 app = Flask(__name__)
 CORS(app)  # Allow CORS for all routes globally
